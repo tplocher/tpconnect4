@@ -5,12 +5,19 @@ Created on Mon Mar 28 14:03:54 2022
 
 @author: thomas
 """
+<<<<<<< HEAD
 
 import os
 import asyncio
 import json
 import secrets
 import signal
+=======
+import asyncio
+import json
+import secrets
+
+>>>>>>> b8ac8b0 (Initial implementation of Connect Four game.)
 import websockets
 
 from connect4 import PLAYER1, PLAYER2, Connect4
@@ -189,6 +196,7 @@ async def handler(websocket, path):
 
 
 async def main():
+<<<<<<< HEAD
     # Set the stop condition when receiving SIGTERM.
     loop = asyncio.get_running_loop()
     stop = loop.create_future()
@@ -199,6 +207,10 @@ async def main():
         await stop
     # async with websockets.serve(handler, "", 8001):
     #     await asyncio.Future()  # run forever
+=======
+    async with websockets.serve(handler, "", 8001):
+        await asyncio.Future()  # run forever
+>>>>>>> b8ac8b0 (Initial implementation of Connect Four game.)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import { createBoard, playMove } from "./connect4.js";
 
+<<<<<<< HEAD
 function getWebSocketServer() {
   if (window.location.host === "tplocher.github.io") {
     return "wss://tpconnect4.herokuapp.com/";
@@ -10,6 +11,8 @@ function getWebSocketServer() {
   }
 }
 
+=======
+>>>>>>> b8ac8b0 (Initial implementation of Connect Four game.)
 function initGame(websocket) {
   websocket.addEventListener("open", () => {
     // Send an "init" event according to who is connecting.
@@ -86,7 +89,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const board = document.querySelector(".board");
   createBoard(board);
   // Open the WebSocket connection and register event handlers.
+<<<<<<< HEAD
   const websocket = new WebSocket(getWebSocketServer());
+=======
+  const websocket = new WebSocket("ws://localhost:8001/");
+>>>>>>> b8ac8b0 (Initial implementation of Connect Four game.)
   initGame(websocket);
   receiveMoves(board, websocket);
   sendMoves(board, websocket);
