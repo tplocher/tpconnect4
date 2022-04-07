@@ -2,6 +2,7 @@ __all__ = ["PLAYER1", "PLAYER2", "Connect4"]
 
 PLAYER1, PLAYER2 = "red", "yellow"
 
+from random import randint
 
 class Connect4:
     """
@@ -19,6 +20,7 @@ class Connect4:
         self.moves = []
         self.top = [0 for _ in range(7)]
         self.winner = None
+        self.start = randint(0, 1)
 
     @property
     def last_player(self):
@@ -26,7 +28,7 @@ class Connect4:
         Player who played the last move.
 
         """
-        return PLAYER1 if len(self.moves) % 2 else PLAYER2
+        return PLAYER1 if (len(self.moves)+self.start) % 2 else PLAYER2
 
     @property
     def last_player_won(self):
