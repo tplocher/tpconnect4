@@ -20,7 +20,7 @@ class Connect4:
         self.moves = []
         self.top = [0 for _ in range(7)]
         self.winner = None
-        self.start = randint(0, 1)
+        self.start = 1 #randint(0, 1)
 
     @property
     def last_player(self):
