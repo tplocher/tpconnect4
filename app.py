@@ -102,6 +102,9 @@ async def start(websocket):
     watch_key = secrets.token_urlsafe(12)
     WATCH[watch_key] = game, connected
 
+    await error(websocket, f"start: game {JOIN[join_key]}")
+    await error(websocket, f"start: join_key {join_key}")
+
     try:
         # Send the secret access tokens to the browser of the first player,
         # where they'll be used for building "join" and "watch" links.
