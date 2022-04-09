@@ -96,10 +96,10 @@ async def start(websocket):
     game = Connect4()
     connected = {websocket}
 
-    join_key = secrets.token_urlsafe(12)
+    join_key = '1234' #secrets.token_urlsafe(12)
     JOIN[join_key] = game, connected
 
-    watch_key = secrets.token_urlsafe(12)
+    watch_key = '5678' #secrets.token_urlsafe(12)
     WATCH[watch_key] = game, connected
 
     #print(f"start: game {JOIN[join_key]}; key {join_key}")
