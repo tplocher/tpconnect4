@@ -41,7 +41,7 @@ body {
 }
 
 .action[href=""] {
-  display: none;
+  /*display: none;*/
 }
 
 /* Connect Four board */
