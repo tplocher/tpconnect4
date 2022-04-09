@@ -28,7 +28,7 @@ class Connect4:
         Player who played the last move.
 
         """
-        return PLAYER1 if (len(self.moves)+self.start) % 2 else PLAYER2
+        return PLAYER1 if (len(self.moves)+1) % 2 else PLAYER2
 
     @property
     def last_player_won(self):
