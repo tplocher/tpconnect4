@@ -49,7 +49,7 @@ class Connect4:
 
         """
         if player == self.last_player:
-            raise RuntimeError("Wait! It isn't your turn. >>>>>> playerIdx = {self.start}")
+            raise RuntimeError(f"Wait! It isn't your turn. >>>>>> playerIdx = {self.start}")
 
         row = self.top[column]
         if row == 6:
