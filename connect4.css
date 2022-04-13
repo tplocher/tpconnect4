@@ -10,6 +10,30 @@ body {
   min-height: 100vh;
 }
 
+/* Display some status information */
+
+.dispInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 720px;
+  height: 50px;
+}
+
+.whoStarts {
+  color: darkgray;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 20px;
+  width: 120px;
+}
+
 /* Action buttons */
 
 .actions {
