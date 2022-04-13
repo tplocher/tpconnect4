@@ -41,7 +41,7 @@ body {
 }
 
 .action[href=""] {
-  display: none;
+  /*display: none; causes new-link to point to github-root and not to tpconnect4*/
 }
 
 /* Connect Four board */
