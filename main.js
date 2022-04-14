@@ -40,7 +40,7 @@ function receiveMoves(board, websocket) {
         // Create links for inviting the second player and spectators.
         document.querySelector(".join").href = "?join=" + event.join;
         document.querySelector(".watch").href = "?watch=" + event.watch;
-        document.getElementById("txt1").textContent = "Player {event.start} starts!";
+        document.getElementById("txt1").textContent = "Player {event.start+1} starts!";
         break;
       case "play":
         // Update the UI with the move.

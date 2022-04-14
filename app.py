@@ -96,7 +96,7 @@ async def start(websocket):
     game = Connect4()
     connected = {websocket}
 
-    join_key = '1234' #secrets.token_urlsafe(12)
+    join_key = '123' #secrets.token_urlsafe(12)
     JOIN[join_key] = game, connected
 
     watch_key = secrets.token_urlsafe(12)
@@ -111,7 +111,7 @@ async def start(websocket):
             "type": "init",
             "join": join_key,
             "watch": watch_key,
-            #"start": game.start,
+            "start": game.start,
         }
         await websocket.send(json.dumps(event))
         # Receive and process moves from the first player.
