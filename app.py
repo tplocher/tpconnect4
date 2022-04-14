@@ -111,6 +111,7 @@ async def start(websocket):
             "type": "init",
             "join": join_key,
             "watch": watch_key,
+            "start": game.start
         }
         await websocket.send(json.dumps(event))
         # Receive and process moves from the first player.
