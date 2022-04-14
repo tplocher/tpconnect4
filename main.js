@@ -22,6 +22,7 @@ function initGame(websocket) {
       // Spectator watches an existing game.
       event.watch = params.get("watch");
     } else {
+      document.getElementById("whoStarts").value = "Have a nice day!";
       // First player starts a new game.
     }
     websocket.send(JSON.stringify(event));
