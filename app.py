@@ -21,7 +21,6 @@ WATCH = {}
 async def error(websocket, message):
     """
     Send an error message.
-
     """
     event = {
         "type": "error",
