@@ -65,7 +65,6 @@ function receiveMoves(board, websocket) {
 }
 
 function sendMoves(board, websocket) {
-  document.getElementById("txt1").textContent = `Player ${event.start} started.`;
   // Don't send moves for a spectator watching a game.
   const params = new URLSearchParams(window.location.search);
   if (params.has("watch")) {
@@ -74,6 +73,7 @@ function sendMoves(board, websocket) {
 
   // When clicking a column, send a "play" event for a move in that column.
   board.addEventListener("click", ({ target }) => {
+    document.getElementById("txt1").textContent = `Player ${event.start} started.`;
     const column = target.dataset.column;
     // Ignore clicks outside a column.
     if (column === undefined) {
