@@ -27,11 +27,11 @@ body {
   font-size: 20px;
   line-height: 20px;
   font-weight: 300;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   padding: 20px;
-  width: 200px;
+  width: 320px;
 }
 
 /* Action buttons */
