@@ -20,7 +20,7 @@ class Connect4:
         self.moves = []
         self.top = [0 for _ in range(7)]
         self.winner = None
-        self.start = randint(0, 1)+1
+        self.start = randint(1, 2)
 
     @property
     def last_player(self):
@@ -49,7 +49,7 @@ class Connect4:
 
         """
         if player == self.last_player:
-            raise RuntimeError(f"Wait! It isn't your turn. Moves: {len(self.moves)}")
+            raise RuntimeError(f"Wait! It isn't your turn. (Moves: {len(self.moves)})")
 
         row = self.top[column]
         if row == 6:
