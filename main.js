@@ -84,7 +84,7 @@ function sendMoves(board, websocket) {
       type: "play",
       column: parseInt(column, 10),
     };
-    document.getElementById("txt1").textContent = `event ${event}`
+    document.getElementById("txt1").textContent = `Last column played: ${event.column}`
     websocket.send(JSON.stringify(event));
   });
   document.getElementById("txt1").textContent = `Determining who starts.`//`Player ${event.start} started. zzz`;
