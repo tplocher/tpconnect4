@@ -85,7 +85,7 @@ function sendMoves(board, websocket) {
     };
     websocket.send(JSON.stringify(event));
   });
-  document.getElementById("txt1").textContent = `Determining who starts. aaa`//`Player ${event.start} started. zzz`;
+  document.getElementById("txt1").textContent = `Determining who starts.`//`Player ${event.start} started. zzz`;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
