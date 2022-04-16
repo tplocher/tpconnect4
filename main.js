@@ -52,6 +52,7 @@ function receiveMoves(board, websocket) {
         break;
       case "win":
         showMessage(`Player ${event.player} wins!`);
+        document.getElementById("txt1").textContent = `Player ${event.player} wins!`;
         // No further messages are expected; close the WebSocket connection.
         websocket.close(1000);
         break;
