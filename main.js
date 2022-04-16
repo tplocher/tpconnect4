@@ -73,7 +73,7 @@ function sendMoves(board, websocket) {
 
   // When clicking a column, send a "play" event for a move in that column.
   board.addEventListener("click", ({ target }) => {
-    document.getElementById("txt1").textContent = `Game started; ${event.moves} moves`;
+    document.getElementById("txt1").textContent = `Entered board.addEventListener`
     const column = target.dataset.column;
     // Ignore clicks outside a column.
     if (column === undefined) {
@@ -83,6 +83,7 @@ function sendMoves(board, websocket) {
       type: "play",
       column: parseInt(column, 10),
     };
+    document.getElementById("txt1").textContent = `board.addEventListener: sending event`
     websocket.send(JSON.stringify(event));
   });
   document.getElementById("txt1").textContent = `Determining who starts.`//`Player ${event.start} started. zzz`;
