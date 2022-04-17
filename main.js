@@ -59,6 +59,7 @@ function receiveMoves(board, websocket) {
             break;
           case "spectator":
             // Create links for inviting spectators.
+            document.querySelector(".new").text = ``;
             document.querySelector(".join").text = ``;
             document.querySelector(".join").href = "?watch=" + event.watch;
             document.querySelector(".watch").href = "?watch=" + event.watch;
