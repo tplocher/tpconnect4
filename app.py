@@ -142,6 +142,8 @@ async def join(websocket, join_key):
         event = {
             "type": "init",
             "player": "player2",
+            "join": game.join,
+            "watch": game.watch,
             "start": game.start,
         }
         await websocket.send(json.dumps(event))
@@ -172,6 +174,7 @@ async def watch(websocket, watch_key):
         event = {
             "type": "init",
             "player": "spectator",
+            "watch": game.watch,
             "start": game.start,
         }
         await websocket.send(json.dumps(event))

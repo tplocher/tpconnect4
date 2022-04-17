@@ -18,6 +18,7 @@ function initGame(websocket) {
     if (params.has("join")) {
       // Second player joins an existing game.
       event.join = params.get("join");
+      event.watch = params.get("watch");
       document.getElementById("txt0").textContent = `Player 2 (Game: ${event.join})`;
     } else if (params.has("watch")) {
       // Spectator watches an existing game.
@@ -60,6 +61,7 @@ function receiveMoves(board, websocket) {
             break;
           case "spectator":
             // Create links for inviting spectators.
+            document.getElementById("txt1").textContent = `Player ${event.start} started!`
             document.querySelector(".watch").href = "ccc";
             break;
           default:
