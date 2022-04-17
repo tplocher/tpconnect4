@@ -55,10 +55,17 @@ class Connect4:
         if row == 6:
             raise RuntimeError("This slot is full.")
 
-        self.moves.append((player, column, row))
+        self.moves.append((player, column, row))        # >>> REMEMBER THE MOVE <<<
         self.top[column] += 1
 
         if self.winner is None and self.last_player_won:
             self.winner = self.last_player
 
         return row
+
+    def saveLinkIDs(self, game, webS, join='', watch=''):
+        self.game = game
+        self.webS = webS
+        self.join = join
+        self.watch = watch
+        return
