@@ -24,15 +24,13 @@ function initGame(websocket) {
       // Spectator watches an existing game.
       document.getElementById("txt0").textContent = `Spectator`;
       event.watch = params.get("watch");
-    } else {
-      // First player starts a new game.
-      if (params.has("joinID")) {
+    // First player starts a new game.
+    } else if (params.has("joinID")) {
         // First Player wants to set a specific join-ID
-        event.join = params.get("joinID");
-        document.getElementById("txt0").textContent = `Player 1 (Game: ${event.join})`;
-      } else {
+        event.joinID = params.get("joinID");
+        document.getElementById("txt0").textContent = `Player 1 (Game: ${event.joinID})`;
+    } else {
         event.joinID = params.get("none");
-      }
     }
     websocket.send(JSON.stringify(event));
   });

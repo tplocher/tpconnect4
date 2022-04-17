@@ -207,7 +207,10 @@ async def handler(websocket, path):
         await watch(websocket, event["watch"])
     else:
         # First player starts a new game.
-        await start(websocket)
+        if "joinID" in event:
+            await start(websocket, event["joinID"])
+        else:
+            await start(websocket)
 
 
 async def main():
