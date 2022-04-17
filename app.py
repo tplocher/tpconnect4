@@ -38,13 +38,13 @@ async def replay(websocket, game):
     # is in progress. If a move is played while replay is running, moves will
     # be sent out of order but each move will be sent once and eventually the
     # UI will be consistent.
-    for moveI, player, column, row in enumerate(game.moves.copy()):
+    for player, column, row in game.moves.copy():
         event = {
             "type": "play",
             "player": player,
             "column": column,
             "row": row,
-            "moves": moveI,
+            #"moves": moveI,
         }
         await websocket.send(json.dumps(event))
 
