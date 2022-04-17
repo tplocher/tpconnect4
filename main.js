@@ -17,8 +17,8 @@ function initGame(websocket) {
     let event = { type: "init" };
     if (params.has("join")) {
       // Second player joins an existing game.
-      document.getElementById("txt0").textContent = `Player 2`;
       event.join = params.get("join");
+      document.getElementById("txt0").textContent = `Player 2 (Game: ${event.join})`;
     } else if (params.has("watch")) {
       // Spectator watches an existing game.
       document.getElementById("txt0").textContent = `Spectator`;
@@ -28,7 +28,7 @@ function initGame(websocket) {
       if (params.has("joinID")) {
         // First Player wants to set a specific join-ID
         event.joinID = params.get("joinID");
-        document.getElementById("txt0").textContent = `Player 1 (join=${event.joinID})`;
+        document.getElementById("txt0").textContent = `Player 1 (Game: ${event.joinID})`;
       } else {
         event.joinID = params.get("none");
       }
@@ -46,10 +46,20 @@ function receiveMoves(board, websocket) {
     const event = JSON.parse(data);
     switch (event.type) {
       case "init":
-        // Create links for inviting the second player and spectators.
-        document.querySelector(".join").href = "?join=" + event.join;
-        document.querySelector(".watch").href = "?watch=" + event.watch;
         document.getElementById("txt1").textContent = `Player ${event.start} starts!`;
+        switch (event.player) {
+          case "player1":
+            // Create links for inviting the second player and spectators.
+            document.querySelector(".join").href = "?join=" + event.join;
+            document.querySelector(".watch").href = "?watch=" + event.watch;
+          case "player2":
+            // Create links for inviting spectators.
+            document.querySelector(".join").href = "aaa?join="+ event.join;
+            document.querySelector(".watch").href = "bbb";
+          case "spectator":
+            // Create links for inviting spectators.
+            document.querySelector(".watch").href = "ccc";
+
         break;
       case "play":
         // Update the UI with the move.

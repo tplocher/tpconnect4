@@ -103,13 +103,12 @@ async def start(websocket):
     watch_key = secrets.token_urlsafe(12)
     WATCH[watch_key] = game, connected
 
-    #print(f"start: game {JOIN[join_key]}; key {join_key}")
-
     try:
         # Send the secret access tokens to the browser of the first player,
         # where they'll be used for building "join" and "watch" links.
         event = {
             "type": "init",
+            "player": "player1",
             "join": join_key,
             "watch": watch_key,
             "start": game.start,
@@ -137,6 +136,13 @@ async def join(websocket, join_key):
     # Register to receive moves from this game.
     connected.add(websocket)
     try:
+        # Send the init requests to the browser
+        event = {
+            "type": "init",
+            "player": "player2",
+            "start": game.start,
+        }
+        await websocket.send(json.dumps(event))
         # Send the first move, in case the first player already played it.
         await replay(websocket, game)
         # Receive and process moves from the second player.
@@ -160,6 +166,13 @@ async def watch(websocket, watch_key):
     # Register to receive moves from this game.
     connected.add(websocket)
     try:
+        # Send the init requests to the browser
+        event = {
+            "type": "init",
+            "player": "spectator",
+            "start": game.start,
+        }
+        await websocket.send(json.dumps(event))
         # Send previous moves, in case the game already started.
         await replay(websocket, game)
         # Keep the connection open, but don't receive any messages.
