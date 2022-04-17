@@ -56,13 +56,13 @@ function receiveMoves(board, websocket) {
             break;
           case "player2":
             // Create links for inviting spectators.
-            document.querySelector(".join").href = "aaa?join="+ event.join;
-            document.querySelector(".watch").href = "bbb";
+            document.querySelector(".join").href = "?join=" + event.join;
+            document.querySelector(".watch").href = "?watch=" + event.watch;
             break;
           case "spectator":
             // Create links for inviting spectators.
-            document.getElementById("txt1").textContent = `Player ${event.start} started!`
-            document.querySelector(".watch").href = "ccc";
+            document.querySelector(".join").href = "?join=" + event.join;
+            document.querySelector(".watch").href = "?watch=" + event.watch;
             break;
           default:
             throw new Error(`Unsupported player type: ${event.player}.`);
