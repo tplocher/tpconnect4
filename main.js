@@ -28,8 +28,8 @@ function initGame(websocket) {
       // First player starts a new game.
       if (params.has("joinID")) {
         // First Player wants to set a specific join-ID
-        event.joinID = params.get("joinID");
-        document.getElementById("txt0").textContent = `Player 1 (Game: ${event.joinID})`;
+        event.join = params.get("joinID");
+        document.getElementById("txt0").textContent = `Player 1 (Game: ${event.join})`;
       } else {
         event.joinID = params.get("none");
       }

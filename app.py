@@ -87,7 +87,7 @@ async def play(websocket, game, player, connected):
             websockets.broadcast(connected, json.dumps(event))
 
 
-async def start(websocket):
+async def start(websocket, join=None):
     """
     Handle a connection from the first player: start a new game.
 
@@ -97,7 +97,10 @@ async def start(websocket):
     game = Connect4()
     connected = {websocket}
 
-    join_key = '123' #secrets.token_urlsafe(12)
+    if join:
+        join_key = join
+    else:
+        join_key = '123' #secrets.token_urlsafe(12)
     JOIN[join_key] = game, connected
 
     watch_key = secrets.token_urlsafe(12)
