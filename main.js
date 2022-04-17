@@ -18,12 +18,10 @@ function initGame(websocket) {
     if (params.has("join")) {
       // Second player joins an existing game.
       document.getElementById("txt0").textContent = `Player 2`;
-      document.getElementById("txt1").textContent = `Player ${event.start} starts!`;
       event.join = params.get("join");
     } else if (params.has("watch")) {
       // Spectator watches an existing game.
       document.getElementById("txt0").textContent = `Spectator`;
-      document.getElementById("txt1").textContent = `Player ${event.start} starts!`;
       event.watch = params.get("watch");
     } else {
       // First player starts a new game.
