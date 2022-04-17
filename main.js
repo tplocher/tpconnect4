@@ -64,6 +64,7 @@ function receiveMoves(board, websocket) {
             break;
           default:
             throw new Error(`Unsupported player type: ${event.player}.`);
+          }
         break;
       case "play":
         // Update the UI with the move.
