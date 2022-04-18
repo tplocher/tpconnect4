@@ -70,7 +70,7 @@ function receiveMoves(board, websocket) {
         break;
       case "play":
         // Update the UI with the move.
-        playMove(board, event.player, event.column, event.row);
+        playMove(board, event.player, event.column, event.row, event.moves);
         break;
       case "win":
         showMessage(`Player ${event.player} wins!`);

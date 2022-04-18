@@ -23,7 +23,7 @@ function createBoard(board) {
   }
 }
 
-function playMove(board, player, column, row) {
+function playMove(board, player, column, row, moves) {
   // Check values of arguments.
   if (player !== PLAYER1 && player !== PLAYER2) {
     throw new Error(`Player must be ${PLAYER1} or ${PLAYER2}.`);
@@ -39,6 +39,9 @@ function playMove(board, player, column, row) {
   // Place checker in cell.
   if (!cellElement.classList.replace("empty", player)) {
     throw new Error("Cell must be empty.");
+  else {
+    document.getElementById("txt1").textContent = `Moves ${moves}; col ${column}`;
+  }
   }
 }
 
