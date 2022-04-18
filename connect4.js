@@ -39,9 +39,8 @@ function playMove(board, player, column, row, moves) {
   // Place checker in cell.
   if (!cellElement.classList.replace("empty", player)) {
     throw new Error("Cell must be empty.");
-  else {
+  } else {
     document.getElementById("txt1").textContent = `Moves ${moves}; col ${column}`;
-  }
   }
 }
 
