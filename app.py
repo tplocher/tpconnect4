@@ -44,7 +44,7 @@ async def replay(websocket, game):
             "player": player,
             "column": column,
             "row": row,
-            "moves": moveI,
+            "moves": moveI+1,
         }
         await websocket.send(json.dumps(event))
 
