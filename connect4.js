@@ -41,6 +41,7 @@ function playMove(board, player, column, row, moves) {
     throw new Error("Cell must be empty.");
   } else {
     document.getElementById("txt1").textContent = `Last move ${moves} was in column ${column}`;
+    document.getElementById("txt1").background = `${player}`;
   }
 }
 
