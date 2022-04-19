@@ -42,6 +42,7 @@ function playMove(board, player, column, row, moves) {
   } else {
     let col = column + 1
     document.getElementById("txt1").textContent = `Last move ${moves} was in column ${col}`;
+    document.getElementById("txt1").style.backgroundColor = `darkgray`;
     document.getElementById("txt1").style.color = player;
   }
 }
