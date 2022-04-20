@@ -100,7 +100,7 @@ async def start(websocket, join=None):
     if join:
         join_key = join
     else:
-        join_key = '123' #secrets.token_urlsafe(12)
+        join_key = secrets.token_urlsafe(12)
     JOIN[join_key] = game, websocketSet
 
     watch_key = secrets.token_urlsafe(12)
