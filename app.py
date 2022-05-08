@@ -49,7 +49,7 @@ async def replay(websocket, game):
         await websocket.send(json.dumps(event))
 
 
-async def play(websocket, game, player, connected):
+async def play(websocket, game, player, websocketSet):
     """
     Receive and process moves from a player.
 
@@ -76,7 +76,7 @@ async def play(websocket, game, player, connected):
             "row": row,
             "moves": len(game.moves),
         }
-        websockets.broadcast(connected, json.dumps(event))
+        websockets.broadcast(websocketSet, json.dumps(event))
 
         # If move is winning, send a "win" event.
         if game.winner is not None:
@@ -84,7 +84,7 @@ async def play(websocket, game, player, connected):
                 "type": "win",
                 "player": game.winner,
             }
-            websockets.broadcast(connected, json.dumps(event))
+            websockets.broadcast(websocketSet, json.dumps(event))
 
 
 async def start(websocket, join=None):
