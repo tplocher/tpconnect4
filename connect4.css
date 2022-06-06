@@ -30,7 +30,7 @@ body {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  /*padding: 20px;*/
+  margin: 20px;
   width: 320px;
 }
 
@@ -54,7 +54,7 @@ body {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  /*padding: 20px;*/
+  margin: 20px;
   width: 120px;
 }
 
