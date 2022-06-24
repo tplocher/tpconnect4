@@ -1,6 +1,6 @@
 const PLAYER1 = "red";
 
-const PLAYER2 = "yellow";
+const PLAYER2 = "green";
 
 function createBoard(board) {
   // Inject stylesheet.

@@ -1,6 +1,6 @@
 __all__ = ["PLAYER1", "PLAYER2", "Connect4"]
 
-PLAYER1, PLAYER2 = "red", "yellow"
+PLAYER1, PLAYER2 = "red", "green"
 
 from random import randint
 
