@@ -7,14 +7,10 @@ import json
 import os
 import secrets
 import signal
-
 import websockets
 
 from connect4 import PLAYER1, PLAYER2, Connect4
-
-
 JOIN = {}
-
 WATCH = {}
 
 
@@ -52,7 +48,6 @@ async def replay(websocket, game):
 async def play(websocket, game, player, websocketSet):
     """
     Receive and process moves from a player.
-
     """
     async for message in websocket:
         # Parse a "play" event from the UI.
@@ -90,7 +85,6 @@ async def play(websocket, game, player, websocketSet):
 async def start(websocket, join=None):
     """
     Handle a connection from the first player: start a new game.
-
     """
     # Initialize a Connect Four game, the set of WebSocket connections
     # receiving moves from this game, and secret access tokens.

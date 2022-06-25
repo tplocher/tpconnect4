@@ -1,6 +1,6 @@
 __all__ = ["PLAYER1", "PLAYER2", "Connect4"]
 
-PLAYER1, PLAYER2 = "red", "green"
+PLAYER1, PLAYER2 = "pink", "green"
 
 from random import randint
 
@@ -22,7 +22,6 @@ class Connect4:
     def last_player(self):
         """
         Player who played the last move.
-
         """
         return PLAYER1 if (len(self.moves)+self.start-1) % 2 else PLAYER2
 
@@ -30,7 +29,6 @@ class Connect4:
     def last_player_won(self):
         """
         Whether the last move is winning.
-
         """
         b = sum(1 << (8 * column + row) for _, column, row in self.moves[::-2])
         return any(b & b >> v & b >> 2 * v & b >> 3 * v for v in [1, 7, 8, 9])
@@ -42,7 +40,6 @@ class Connect4:
         Returns the row where the checker lands.
 
         Raises :exc:`RuntimeError` if the move is illegal.
-
         """
         if player == self.last_player:
             raise RuntimeError(f"Wait! It isn't your turn. (Moves: {len(self.moves)})")

@@ -1,4 +1,4 @@
-const PLAYER1 = "red";
+const PLAYER1 = "pink";
 
 const PLAYER2 = "green";
 

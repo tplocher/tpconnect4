@@ -24,7 +24,7 @@ function initGame(websocket) {
       // Spectator watches an existing game.
       document.getElementById("txt0").textContent = `Spectator`;
       event.watch = params.get("watch");
-    // First player starts a new game.
+      // First player started a new game.
     } else if (params.has("joinID")) {
         // First Player wants to set a specific join-ID
         event.joinID = params.get("joinID");
