@@ -93,11 +93,11 @@ async def start(websocket, join=None):
 
     if join:
         join_key = join
+        watch_key = f'w{join}'
     else:
         join_key = secrets.token_urlsafe(12)
+        watch_key = secrets.token_urlsafe(12)
     JOIN[join_key] = game, websocketSet
-
-    watch_key = secrets.token_urlsafe(12)
     WATCH[watch_key] = game, websocketSet
 
     game.saveLinkIDs(game, websocketSet, join_key, watch_key)
@@ -107,7 +107,7 @@ async def start(websocket, join=None):
         # where they'll be used for building "join" and "watch" links.
         event = {
             "type": "init",
-            "player": "player1",
+            "player": PLAYER1,
             "join": join_key,
             "watch": watch_key,
             "start": game.start,
@@ -138,7 +138,7 @@ async def join(websocket, join_key):
         # Send the init requests to the browser
         event = {
             "type": "init",
-            "player": "player2",
+            "player": PLAYER2,
             "join": game.join,
             "watch": game.watch,
             "start": game.start,
